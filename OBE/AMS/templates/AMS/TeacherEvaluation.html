@@ -1,0 +1,82 @@
+  {% extends "AMS/TeacherBase.html" %}
+  {% block Content%}
+  {%load static%}
+  <div class="w3-padding-large" id="main">
+
+    <header class="w3-container w3-padding-32 w3-center " id="home">
+     
+     
+    </header>
+  
+    <!-- About Section -->
+   
+      
+      <!-- Grid for pricing tables -->
+      <div class="w3-row">
+        <div class="w3-col w3-container m3 l3 w3-white">
+          
+        </div>
+        <div class="w3-col w3-container m6 l6 ">  
+            <div class="w3-card-4  w3-white w3-text-dark-gray">
+                <p class="w3-center w3-xxlarge w3-theme-d3 w3-padding"> Select</p> 
+          <form action="Mod/" method="POST">
+           {% csrf_token %}
+          <table class="w3-table w3-large w3-white w3-text-dark-gray ">
+            <thead>
+              <tr >
+                <th class="w3-center">Batch</th>
+                <th class="w3-center">
+                  <select class="w3-light-grey w3-text-grey" id="Batch" name="Batch">
+                    {% for Batch in Batches %}
+                      <option value="{{Batch}}">{{Batch}}</option>      
+                    {% endfor %}
+                  </select>
+                </th>
+              </tr>
+              <tr >
+                <th class="w3-center">Course</th>
+                <th class="w3-center">
+                  <select class="w3-light-grey w3-text-grey" id="Course" name="Course">
+                    {% for Course in Courses %}
+                      <option value="{{Course}}">{{Course}}</option>      
+                    {% endfor %}
+                  </select>
+                </th>
+              </tr>
+              <tr>
+              
+                <th class="w3-center">Section</th>
+                <th class="w3-center">
+                  <select class="w3-light-grey w3-text-grey" id="Section" name="Section">
+                    {% for Section in Sections %}
+                      <option value="{{Section}}">{{Section}}</option>      
+                    {% endfor %}
+                  </select>
+                </th><br><br>
+              </tr>
+
+              
+
+
+              
+            </thead>
+           
+            
+            
+          
+          </table><br>
+          <div class=w3-center>
+          <input class="w3-button w3-round-xlarge w3-teal" type="submit" value="Submit">
+        </div>  <br>
+        </form>
+        </div>
+        </div>
+
+
+        <div class="w3-col w3-container m3 l3">  
+           </div>
+      </div></form>
+      </form>
+     
+    </div>
+  {% endblock Content%}

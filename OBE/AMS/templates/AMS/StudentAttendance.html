@@ -1,0 +1,131 @@
+{% extends "AMS/StudentBase.html" %}
+{% block Content%}
+{%load static%}
+
+
+
+{%for Result in Results%}
+      <div id="{{forloop.counter}}" class="w3-modal">
+        <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-theme-d2" style="max-width:500px">
+          <div class="w3-center"><br>
+            <span onclick="document.getElementById('{{forloop.counter}}').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+          </div><br>
+
+          <div class="w3-text-dark-gray ">
+            <table id="" class="w3-table w3-text-black' ">
+              <tr class="w3-center ">
+                <th class="w3-center">Serial#</th>
+                <th class="w3-center">Date</th>
+                <th class="w3-center">Duration(in hours)</th>
+                <th class="w3-center">Presence</th>
+              </tr>
+              {%for Date, Duration, Attendance in Result %}
+              <tr class="w3-center ">
+                <td class="w3-center">{{forloop.counter}}</td>
+                <td class="w3-center">{{Date}}</td>
+                <td class="w3-center">{{Duration}}</td>
+                <td class="w3-center">{{Attendance}}</td>
+              </tr>
+              {%endfor%}
+            </table>
+        </div>
+        <div class="w3-container w3-border-top w3-padding-16 w3-light-grey w3-center">
+          <button onclick="document.getElementById('{{forloop.counter}}').style.display='none'" type="button" class="w3-button w3-red">Close</button></div>
+      </div>
+    </div>
+    {%endfor%}
+
+
+      <div class="w3-row">
+        <div class="w3-col w3-container m3 l3 w3-theme-d4">
+          
+        </div>
+       
+        <div class="w3-col w3-container m6 l6 w3-theme-d4  ">  <br>
+          
+        </div>
+
+        <div class="w3-col w3-container m3 l3 w3-theme-d4">  
+           </div>
+      </div>
+     <br>
+     <br><br><br>
+     <div class="w3-row">
+
+      <div class="w3-col w3-container m1 l1 w3-theme-d4">
+        
+      </div>
+
+    
+      <div class="w3-col  m10 l10 w3-theme-d2">
+        <div class="w3-text-dark-gray ">
+         <br>
+        
+          <table id="table1" class="w3-table  ">
+             <col width="30%">
+             <col width="60%">
+             <col width="10%">
+             
+            <tr class="w3-center w3-large">
+              <th class="w3-center">Course#</th>
+              <th class="w3-center">Attendance</th>
+              <th> </th>
+            </tr>
+
+            {% for Course,Percentage in Records %}
+            <tr class="w3-center ">
+              <td class="w3-center w3-large">{{forloop.counter}}.    {{Course}}</td>
+              <td class="w3-center">
+                <div class="w3-theme-d1 w3-round-xlarge">
+                  <div class="w3-container w3-text-dark-gray w3-round-xlarge" style="width:{{Percentage}}%">{{Percentage}}</div>
+                </div>
+              </td>
+              
+
+            <td>
+                <button onclick="document.getElementById('{{forloop.counter}}').style.display='block'" class="ww3-button w3-round-xlarge w3-teal" style="text-decoration:none ;">View</button>
+            </td>
+            </tr>
+            {% endfor %}
+          </table><br><br>
+        </div>
+      </div>
+      
+
+      <div class="w3-col w3-container m1 l1 w3-theme-d4">
+        
+      </div>
+    </div>
+
+    </div>
+    
+    
+  
+  <!-- Page Content -->
+
+  <script language="javascript">
+    var table = document.getElementById("table1"); 
+var totalRows = document.getElementById("table1").rows.length;
+var totalCol = 4; // enter the number of columns in the table minus 1 (first column is 0 not 1)
+//To display all values
+for (var x = 1; x < totalRows; x++)
+{
+  
+ if(table.rows[x].cells[1].getElementsByTagName("DIV")[1].innerHTML < 80){
+   
+  table.rows[x].cells[1].getElementsByTagName("DIV")[1].style.backgroundColor ="#FFA2A2";
+   }
+  if(table.rows[x].cells[1].getElementsByTagName("DIV")[1].innerHTML >= 80){
+   
+    table.rows[x].cells[1].getElementsByTagName("DIV")[1].style.backgroundColor ="#FFFFBA";
+   }
+   if(table.rows[x].cells[1].getElementsByTagName("DIV")[1].innerHTML >= 86){
+   
+    table.rows[x].cells[1].getElementsByTagName("DIV")[1].style.backgroundColor ="#D6FFAC";
+   }
+ 
+}
+//To display a single cell value enter in the row number and column number under rows and cells below:
+
+</script>
+{% endblock Content%}

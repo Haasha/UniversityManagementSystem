@@ -1,0 +1,86 @@
+{% extends "AMS/StudentBase.html" %}
+{% block Content %}
+  {%load static%}
+   <div class="w3-padding-large" id="main">
+
+    <header class="w3-container w3-padding-32 w3-center " id="home">
+    </header>
+    <div class="w3-row">
+
+      <div class="w3-col w3-container m3 l3 w3-theme-d4">
+        <div>
+          <div class="w3-card-4 w3-theme-d4" style="width:100%">
+            <img src="{% static "AMS/images/img_avatar3.png" %}" alt="Person" style="width:100%">
+            <div class="w3-container w3-theme-d3">
+              <h4><b>{{Students.Name}}</b></h4>
+              <p><b>Gender : </b>{{Students.Gender}}</p>
+              <p><b>Mobile number : </b>{{Students.PhoneNo}}</p>
+              <p><b>Email : </b>{{Students.Email}}</p>
+              <p><b>DOB : </b>{{Students.DoB}}</p>
+              <p><b>CNIC : </b>{{Students.CNIC}}</p>
+            </div>
+          </div>
+        </div>
+        <table></table>
+      </div>
+      <div class="w3-col  m9 l9 w3-theme-d2">
+        <div class="w3-container w3-theme-d5 "><br>
+          <div class="w3-xlarge"><b>University Information</b></div>
+          <div class="w3-text-dark-gray w3-theme-d2">
+            <table id="table2" class="w3-table w3-text-black "><br>
+              <tr class="w3-center ">
+                <td class="w3-center"><b>Roll No: </b></td>
+                <td>{{Students.StudentID}}</td>
+                <td class="w3-center"><b>Degree: </b></td>
+                <td>{{Students.ProgramID}}</td>
+                <td class="w3-center"><b>Batch: </b><td>
+                <td>{{Students.BatchID}}</td>
+              </tr>
+              <tr class="w3-center ">
+                <td class="w3-center"><b>Section: </b></td>
+                <td>{{Students.Section}}</td>
+                <td class="w3-center"><b>Campus: </b></td>
+                <td>Islamabad</td>
+                <td class="w3-center"><b>Status: </b><td>
+                <td>{{Students.Status}}</td>
+              </tr>
+            </table><br>
+          </div><br>
+        </div>
+    <div class="w3-container w3-theme-d4"><br></div>
+    <div class="w3-container w3-theme-d5 "><br>
+        <div class="w3-xlarge"><b>Contact Information</b></div>
+          <div class="w3-text-dark-gray w3-theme-d2">
+             <table id="table2" class="w3-table w3-text-black ">
+                <col width=50%><col width=50%><br>
+                <tr>
+                  <th class="w3-large">Permenant:</th>
+                  <th class="w3-large">Current</th>
+                </tr>
+               
+                <tr>
+                  <td ><b> Address: </b> {{Students.PermanentAddress}} </td>
+                  <td ><b> Address: </b> {{Students.TemporaryAddress}} </td>
+                </tr>
+
+                <tr>
+                  <td ><b> Home Phone: </b> {{Students.PermanentPhone}} </td>
+                  <td ><b> Home Phone: </b> {{Students.TemporaryPhone}} </td>
+                </tr>
+
+                <tr>
+                  <td ><b> Postal Code: </b> {{Students.PermanentPostalCode}} </td>
+                  <td ><b> Postal Code: </b> {{Students.TemporaryPostalCode}} </td>
+                </tr>
+
+                <tr >
+                  <td ><b> City: </b> {{Students.PermanentCity}} </td>
+                  <td ><b> City: </b> {{Students.TemporaryCity}} </td>
+               </tr>
+             </table><br>
+          </div><br>
+    </div>
+    </div>
+    </div>
+    </div>
+{% endblock Content %}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <title>Student's Portal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'AMS/Css/Dashboard.css' %}">
+  </head>
+<body class="w3-theme-d4">
+
+  <!-- NAVBAR-->
+  <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center w3-theme-d5">
+
+    <a href="{% url 'StudentDashboard' %}" style="text-decoration: none;"class="w3-hover-blue-gray w3-bar-item w3-button   w3-theme-d5">
+      <i class="fa fa-user w3-xxlarge "></i><p>Profile</p>
+    </a>
+    
+    <a href="{% url 'StudentCourseRegistration' %}" class="w3-hover-blue-gray w3-bar-item w3-button  w3-theme-d5" style="text-decoration: none;">
+      <i class="glyphicon glyphicon-th-list w3-xxlarge w3-center"></i><p>Course Registration</p>
+    </a>
+
+    <a href="{% url 'StudentAttendance' %}" class="w3-hover-blue-gray w3-bar-item w3-button  w3-theme-d5" style="text-decoration: none;">
+      <i class="glyphicon glyphicon-calendar w3-xxlarge w3-center"></i><p>Attendance</p>
+    </a>
+
+    <a href="{% url 'StudentEvaluation' %}" class="w3-hover-blue-gray w3-bar-item w3-button  w3-theme-d5">
+      <i class="glyphicon glyphicon-file w3-xxlarge"></i><p>Evaluations</p>
+    </a>
+
+    <a href="{% url 'StudentTranscript' %}" class="w3-hover-blue-gray w3-bar-item w3-button w3-hover-off w3-theme-d5 ">
+      <i class=" glyphicon glyphicon-stats w3-xxlarge"></i><p>Transcript</p>
+    </a>
+
+    <a href="{% url 'StudentLogout' %}" class="w3-hover-blue-gray w3-bar-item w3-button w3-hover-off w3-theme-d5 ">
+      <i class=" glyphicon glyphicon-remove w3-xxlarge"></i><p>Log Out</p>
+    </a>
+  </nav>
+
+  <!--NAVBAR WHEN SCREEN IS TOO SMOL -->
+  <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+    <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+      <a href="{% url 'StudentDashboard' %}" class="w3-bar-item w3-button" style="width:20% !important">Profile</a>
+      <a href="{% url 'StudentCourseRegistration' %}" class="w3-bar-item w3-button" style="text-decoration: none; width:20% !important ">Course Registration</a>
+      <a href="{% url 'StudentAttendance' %}" class="w3-bar-item w3-button" style="text-decoration: none; width:20% !important">Attendance</a>
+      <a href="{% url 'StudentEvaluation' %}" class="w3-bar-item w3-button" style="text-decoration: none; width:20% !important">Evaluations</a>
+      <a href="{% url 'StudentTranscript' %}" class="w3-bar-item w3-button" style="text-decoration: none; width:20% !important">Transcript</a>
+      <a href="{% url 'StudentLogout' %}" class="w3-bar-item w3-button" style="text-decoration: none; width:20% !important">Log Out</a>
+    </div>
+  </div>
+  
+  {% block Content %}
+  {% endblock Content %}
+
+    
+    
+    
+  <!-- Page Content -->
+
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+  {% extends "AMS/TeacherBase.html" %}
+  {% block Content%}
+  {%load static%}
+<br><br>
+
+
+
+      <div class="w3-row">
+         <div  class="w3-col w3-container m2 l2 w3-blue-gray"></div>
+
+          <div class="w3-col  m8 l8 w3-white">
+
+            <div class=" w3-theme-d2  w3-large"><br>
+             <form action="Save/" method="POST">
+              {%csrf_token%}
+              <div class="w3-container w3-text-dark-grey w3-center w3-large">
+              <label class="w3-padding">Semester: </label>
+             <input type="text" name="Sem" value="{{Semester}}" readonly><br>
+             <label class="w3-padding">Batch: </label>
+             <input type="text" name="Batch" value="{{Batch}}" readonly><br>
+             <label class="w3-padding">Course: </label>
+             <input type="text" name="Course" value="{{Course}}" readonly><br>
+             <label class="w3-padding">Section: </label>
+             <input type="text" name="Section" value="{{Section}}" readonly><br>
+             <label class="w3-padding">Eval Number: </label>
+             <input type="text" name="EvalNum" value="{{EvalNum}}" readonly><br>
+             <label class="w3-padding">Weightage: </label>
+             <input type="text" name="Weightage" value="{{Weightage}}"><br>
+             <label class="w3-padding">Total Marks: </label>
+             <input type="text" name="TotalMarks" value="{{TotalMarks}}"><br>
+             <label class="w3-padding">Type: </label>
+             <select name="Type" class = "w3-light-grey w3-text-grey">
+                <option value="{{Type}}">{{Type}}</option>
+                {% for Choice in Choices %}
+                  {% ifnotequal Choice Type %}
+                  <option value="{{Choice}}">{{Choice}}</option> 
+                  {%endifnotequal%}
+                {% endfor %}
+              </select>
+          </div><br>
+              <table id="table1" class="w3-table w3-text-dark-gray">
+                <col width=5%>
+                <tr class="w3-center ">
+                  <th class="w3-center">Serial#</th>
+                  <th class="w3-center">Roll#</th>
+                  <th class="w3-center">Name</th>
+                  <th class="w3-center">ObtainedMarks</th>
+  
+                </tr>
+                {% for StudentIDs,Names,Marks in Records%}
+                <tr class="w3-center">
+                  <td class="w3-center">{{forloop.counter}}</td>
+                  <td class="w3-center">{{StudentIDs}}</td>
+                  <td class="w3-center">{{Names.Name}}</td>
+                  <td class="w3-center"><input type="text" name="ObtainedMarks" value="{{Marks}}" size='4'></td>
+                </tr>
+                {% endfor %}
+                <br>
+                
+              </table><br>
+              <div class=w3-center>
+                <input class="w3-button w3-round-xlarge w3-teal" type="submit" value="Update">
+              </div> 
+              <br>
+            </form>
+            </div>
+          </div>
+
+          <div  class="w3-col w3-container m2 l2 w3-blue-gray"></div>
+
+          </div>
+
+      
+    
+    {% endblock Content %}

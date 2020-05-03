@@ -1,0 +1,118 @@
+{% extends "AMS/StudentBase.html" %}
+{% block Content%}
+{%load static%}
+  <div class="w3-padding-large" id="main">
+
+    <header class="w3-container w3-padding-32 w3-center " id="home">
+     
+     
+    </header>
+  
+    <!-- About Section -->
+
+    
+     <br><br>
+      <div class="w3-row">
+
+        <div class="w3-col w3-container m1 l1 w3-theme-d4">
+          
+        </div>
+
+      
+        <div class="w3-col  m10 l10 w3-theme-d2">
+
+            <div class="w3-bar w3-theme-d5 ">
+                {%for Course in Courses%}
+                <button class="w3-bar-item w3-button tablink " onclick="openCourse(event,'{{forloop.counter}}')"><b>{{Course}}</b></button>
+                {%endfor%}
+              </div>
+
+
+            {%for TotalAbs,TotalObtainedAbs,Result in Results%}
+              <div id="{{forloop.counter}}" class="Course w3-text-dark-gray " style="display:none">
+                <div class="w3-container w3-theme-d5 ">
+                  <h1><b>Scores</b></h1>
+
+             <div class="w3-text-dark-gray w3-theme-d2">
+                 <table id="table2" class="w3-table w3-text-black ">
+                   
+                   <tr class="w3-center ">
+                     <th class="w3-center">Number</th>
+                     <th class="w3-center">Weightage</th>
+                     <th class="w3-center">Total Marks</th>
+                     <th class="w3-center">Obtained Marks</th>
+                     <th class="w3-center">Type</th>
+                   </tr>
+                   {%for Weightage,TotalMark,ObtainedMark,Type in Result%}
+                   <tr class="w3-center ">
+                     <td class="w3-center">{{forloop.counter}}</td>
+                     <td class="w3-center">{{Weightage}}</td>
+                     <td class="w3-center">{{TotalMark}}</td>
+                     <td class="w3-center">{{ObtainedMark}}</td>
+                    <td class="w3-center">{{Type}}</td>
+                   </tr>
+                   {%endfor%}
+                   <tr class="w3-center">
+                   </tr>
+                   <tr class="w3-center ">
+                     <td class="w3-center"></td>
+                     <td class="w3-center"><b>Total Absolutes: {{TotalAbs}}</b></td>
+                     <td class="w3-center"></td>
+                     <td class="w3-center"><b>Obtained Absolutes: {{TotalObtainedAbs}}</b></td>
+                     <td class="w3-center"></td>
+                   </tr>
+                 </table>
+             </div>
+             <br>
+            </div>
+             </div>
+          {%endfor%}
+          </div>
+          <div class="w3-col w3-container m1 l1 w3-theme-d4">
+          
+        </div>
+        </div>
+        
+
+       
+      </div>
+
+    
+    
+    
+  <script>
+  function openCourse(evt, cityName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("Course");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-theme-d2", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " w3-theme-d2";
+}
+
+var table = document.getElementById("table1"); 
+var totalRows = document.getElementById("table1").rows.length;
+var totalCol = 4; // enter the number of columns in the table minus 1 (first column is 0 not 1)
+//To display all values
+
+  
+ if(table.rows[0].cells[0].getElementsByTagName("DIV")[1].innerHTML < 80){
+   
+    table.rows[0].cells[0].getElementsByTagName("DIV")[1].style.backgroundColor ="#FFA2A2";
+   }
+  if(table.rows[0].cells[0].getElementsByTagName("DIV")[1].innerHTML >= 80){
+   
+    table.rows[0].cells[0].getElementsByTagName("DIV")[1].style.backgroundColor ="#FFFFBA";
+   }
+   if(table.rows[0].cells[0].getElementsByTagName("DIV")[1].innerHTML >= 86){
+   
+    table.rows[0].cells[0].getElementsByTagName("DIV")[1].style.backgroundColor ="#D6FFAC";
+   
+}
+  </script>
+{% endblock Content%}

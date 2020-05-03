@@ -1,0 +1,171 @@
+{% extends "AMS/StudentBase.html" %}
+{% block Content %}
+{%load static%}
+  <div class="w3-padding-large" id="main">
+
+    <header class="w3-container w3-padding-32 w3-center " id="home">
+     
+     
+    </header>
+    <!-- About Section -->
+   
+   
+      
+     <div class="w3-row">
+
+      <div class="w3-col w3-container m1 l1 w3-theme-d4">
+        
+      </div>
+
+    
+      <div class="w3-col  m10 l10 w3-theme-d2">
+        <div class="w3-text-dark-gray ">
+       
+        
+          <table id="table1" class="w3-table  ">
+             <col width="33%">
+             <col width="34%">
+             <col width="33%">
+           <br>
+         
+            <tr class="w3-center ">
+              <td ><b>Roll No :</b> i17-0003  </td>
+              <td ><b>Name :</b>  Muhammad Rehan Azhar  </td>
+              <td ><b>Status :</b>Current    </td>
+            </tr>
+            <tr class="w3-center ">
+                <td ><b>Program :</b> i17-0003  </td>
+                <td ><b>Batch :</b>  Muhammad Rehan Azhar  </td>
+                <td ><b>Section :</b>Current    </td>
+              </tr>
+              <tr class="w3-center ">
+                <td ><b>Credits Attempted :</b> i17-0003  </td>
+                <td ><b>Credits Earned :</b>  Muhammad Rehan Azhar  </td>
+                <td ><b>CGPA :</b>Current    </td>
+              </tr>
+              <tr class="w3-center ">
+                <td ><b>Warning Count :</b> i17-0003  </td>
+                <td ><b>Semester :</b>  Muhammad Rehan Azhar  </td>
+                <td ><b>Credit Limit for Semester :</b>Current    </td>
+              </tr>
+              <tr class="w3-center ">
+                <td ><b>Registered Courses :</b> i17-0003  </td>
+                <td ><b>Registered Credits :</b>  Muhammad Rehan Azhar  </td>
+                
+              </tr>
+    
+          
+          </table>
+<br>
+        </div>
+      </div>
+      
+
+      <div class="w3-col w3-container m1 l1 w3-theme-d4">
+        
+      </div>
+    </div>
+    <div class="w3-panel  w3-red      w3-display-container">
+        <span onclick="this.parentElement.style.display='none'"
+        class="w3-button w3-large w3-display-topright">&times;</span>
+        <h4><b>Alert!</b></h4>
+        <p>Registration period <b>is active</b>.</p>
+      </div>
+
+    <div class="w3-panel w3-blue-gray w3-display-container">
+        <span onclick="this.parentElement.style.display='none'"
+        class="w3-button w3-large w3-display-topright">&times;</span>
+        <h4><b>Attention!</b></h4>
+        <p> The Failed and Missed Courses are Must Take and they will be automatically reigstered when you press the Register Courses button.</p>
+        <p>You cannot drop Core , Must Take and Deficiency courses. Register course carefully.</p>
+    </div>
+      
+<br>
+
+      <div class="w3-theme-d2 w3-text-dark-gray">
+<form action="" method="POST">
+  {% csrf_token %}
+<table class="w3-text-dark-gray">
+  <col width="5%"><col width="25%"><col width="5%"><col width="10%"><col width="30%"><col width="15%"><col width="5%">
+
+  <tr class="w3-theme-d5">
+    <th class="w3-center w3-theme-d5">Sr#</th>
+    <th class="w3-center w3-theme-d5">Course Name</th>
+    <th class="w3-center w3-theme-d5">Cr.Hrs</th>
+    <th class="w3-center w3-theme-d5">Relation</th>
+    <th class="w3-center w3-theme-d5">Comments</th>
+    <th class="w3-center w3-theme-d5">Status</th>
+    <th class="w3-center w3-theme-d5"> Section</th>
+    <th class="w3-center w3-theme-d5"> Select</th>
+  </tr >
+
+  {% for Reg,Course,Sections,Status in Records%}
+  <tr class="w3-center">
+    <td class="w3-center">{{forloop.counter}}</td>
+    <td class="w3-center">{{Course.CourseID}}-{{Course.Title}}</td>
+    <td class="w3-center">{{Course.CreditHours}}</td>
+    <td class="w3-center">{{Reg.CourseType}}</td>
+    <td class="w3-center">{{Reg.Description}}</td>
+    
+    {%ifequal Status "Registered" %}
+      <td class="w3-center">Registered</td>
+      <td class="w3-center"></td>
+      <td class="w3-center"></td>
+    {% else %}
+      <td class="w3-center">UnRegistered</td>
+      <td class="w3-center">
+        <select name="Section_{{forloop.counter}}" class = "w3-light-grey w3-text-grey">
+          {% for Section in Sections %}
+            <option value="{{Section}}">{{Section}}</option>          
+          {% endfor %}
+        </select>
+      </td>
+      <td class="w3-center"><input type="checkbox" name="Attendance_{{forloop.counter}}"></td>
+    {% endifequal %}
+  </tr>
+  {% endfor %}
+
+  <tr>
+      <td class="w3-center">3</td>
+      <td class="w3-center">CS302-Design and Analysis of Algorithms</td>
+      <td class="w3-center">3</td>
+      <td class="w3-center">Elective</td>
+      <td class="w3-center">Register! 5-New Offered Course New (Recommended)</td>
+      <td class="w3-center">Registered</td>
+      <td class="w3-center"> BCS-F</td>
+      <td class="w3-center"> </td>
+  </tr>
+</table>
+<br>
+<div class=w3-center>
+    <input class="w3-button w3-round-xlarge w3-teal" type="submit" value="Register">
+</div>
+</div>
+</form>
+
+
+</div>
+<script language="javascript">
+var table = document.getElementById("table1"); 
+var totalRows = document.getElementById("table1").rows.length;
+var totalCol = 4; // enter the number of columns in the table minus 1 (first column is 0 not 1)
+//To display all values
+for (var x = 1; x < totalRows; x++)
+{
+  
+ if(table.rows[x].cells[1].getElementsByTagName("DIV")[1].innerHTML < 80){
+   
+  table.rows[x].cells[1].getElementsByTagName("DIV")[1].style.backgroundColor ="#FFA2A2";
+   }
+  if(table.rows[x].cells[1].getElementsByTagName("DIV")[1].innerHTML >= 80){
+   
+    table.rows[x].cells[1].getElementsByTagName("DIV")[1].style.backgroundColor ="#FFFFBA";
+   }
+   if(table.rows[x].cells[1].getElementsByTagName("DIV")[1].innerHTML >= 86){
+   
+    table.rows[x].cells[1].getElementsByTagName("DIV")[1].style.backgroundColor ="#D6FFAC";
+   }
+}
+</script>
+
+{% endblock Content %}

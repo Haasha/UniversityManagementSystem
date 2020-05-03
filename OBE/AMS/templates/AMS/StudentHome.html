@@ -1,0 +1,75 @@
+﻿{% extends "AMS/Base.html" %}
+{% block Content %}
+	<div class="Container">
+		<div class="div_Header" style="float:left">
+			<h3>Personal Information</h3>
+	   		<p>
+				<strong>Name</strong> : {{Students.Name}}
+			</p>
+
+			<p>	
+				<strong>CNIC</strong> : {{Students.CNIC}}
+			</p>
+			<p>
+				<strong>Gender</strong> : {{Students.Gender}}
+
+			</p>
+
+			<p>
+				<strong>DOB</strong> : {{Students.DoB}}
+			</p>
+		
+			<p>	
+				<strong>Phone No</strong> :{{Students.PhoneNo}}
+			</p>
+		</div>
+		<div class="div_Header" style="float:left">
+			<h3>
+				University Information
+		
+			</h3>
+			<p>
+				Roll# : {{Students.StudentID}}
+			</p>
+
+			<p>	
+				Section : {{Students.Section}}
+			</p>
+
+			<p>
+				Degree : {{Students.ProgramID}}
+			</p>
+		
+			<p>
+				Batch : {{Students.BatchID}}
+			</p>
+		</div>	
+		
+		<div class="div_Header" style="float:left">
+			<h3>
+				Contact Information
+		
+			</h3>
+			<p>
+				Address: {{Students.Address}}
+			</p>
+		
+			<p>
+				Postal Code: {{Students.PostalCode}}
+			</p>
+		
+			<p>	
+				City: {{Students.City}}
+			</p>
+
+		</div>
+		
+		<div class="Container" style="margin-top: 50px;">
+				<div class="div_Tables">
+						<h3>Announcements</h3>
+				</div>
+		</div>
+	</div>
+
+{% endblock Content %}
+	

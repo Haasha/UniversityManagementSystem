@@ -1,0 +1,19 @@
+HTML CSSResult
+EDIT ON
+        body {
+        background-color: #F3EBF6;
+        font-family: 'Ubuntu', sans-serif;
+    }
+    
+   
+    
+    form.form1 {
+        padding-top: 40px;
+    }
+    
+    
+    @media (max-width: 600px) {
+        .main {
+            border-radius: 0px;
+        }
+    

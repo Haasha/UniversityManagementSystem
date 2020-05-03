@@ -1,0 +1,27 @@
+.SideBar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 10%;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.SideBar li a {
+  display: block;
+  color: #000000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.SideBar li a:active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.SideBar li a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}

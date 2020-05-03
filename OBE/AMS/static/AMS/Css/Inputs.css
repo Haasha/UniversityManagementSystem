@@ -1,0 +1,32 @@
+input[type=text],  input[type=password] {
+  width:100%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-position: 5px;
+  padding-left: 30px;
+  background-repeat: no-repeat;
+  background-size:20px;
+}
+input[type=text]:focus , input[type=password]:focus {
+  background-color: lightblue;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  display: block;
+  padding: 12px 20px;
+  min-width: 5vw;
+}
+input[type=submit]:hover {
+
+  background-color: #45a049;
+}

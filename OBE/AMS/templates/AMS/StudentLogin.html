@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>Student Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'AMS/Css/Student_Login.css' %}">
+  </head>
+  
+  <body class="w3-theme-d4" style="background-image: url({% static 'AMS/images/Library_4.jpg' %});background-repeat: no-repeat;background-size: cover;"  >
+
+    <!-- NAVBAR-->
+    <div class="w3-row">
+      <div class="w3-col w3-container m4 l4 "></div>
+      <div class="w3-col w3-container m4 l4 "><br><br><br><br>
+        <form class="w3-card w3-padding w3-theme-d5" action="" method="POST">
+          {% csrf_token %}
+          <div class="w3-center"><br>
+            <img src="{% static 'AMS/images/img_avatar3.png' %}" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+          </div>
+
+          <div class="w3-section">
+            <label><b>Roll#</b></label>
+            <input class="w3-input w3-border w3-margin-bottom" style="color:black;" type="text" placeholder="i17-XXXX" name="ID" required>
+            <label><b>Password</b></label>
+            <input class="w3-input w3-border w3-margin-bottom" style="color:black;" type="password" placeholder="Password" name="Password" required>
+            <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Login</button>
+          </div>
+        </form>
+      <div class="w3-col w3-container m4 l4 w3-theme-d4">  
+      </div>
+    </div>
+  </body>
+</html>

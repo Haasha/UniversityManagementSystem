@@ -1,0 +1,78 @@
+{% extends "AMS/TeacherBase.html" %}
+{% block Content %}
+  {%load static%}
+   <div class="w3-padding-large" id="main">
+
+    <header class="w3-container w3-padding-32 w3-center " id="home">
+    </header>
+    <div class="w3-row">
+
+      <div class="w3-col w3-container m3 l3 w3-theme-d4">
+        <div>
+          <div class="w3-card-4 w3-theme-d4" style="width:100%">
+            <img src="{% static "AMS/images/img_avatar3.png" %}" alt="Person" style="width:100%">
+            <div class="w3-container w3-theme-d3">
+              <h4><b>{{Employee.Name}}</b></h4>
+              <p><b>Gender : </b>{{Employee.Gender}}</p>
+              <p><b>Mobile number : </b>{{Employee.PhoneNo}}</p>
+              <p><b>Email : </b>{{Employee.Email}}</p>
+              <p><b>DOB : </b>{{Employee.DoB}}</p>
+              <p><b>CNIC : </b>{{Employee.CNIC}}</p>
+            </div>
+          </div>
+        </div>
+        <table></table>
+      </div>
+      <div class="w3-col  m9 l9 w3-theme-d2">
+        <div class="w3-container w3-theme-d5 "><br>
+          <div class="w3-xlarge"><b>Employee Information</b></div>
+          <div class="w3-text-dark-gray w3-theme-d2">
+            <table id="table2" class="w3-table w3-text-black "><br>
+              <tr class="w3-center ">
+                <td class="w3-center"><b>Employee ID: </b></td>
+                <td>{{Employee.EmployeeID}}</td>
+                <td class="w3-center"><b>Designation: </b></td>
+                <td>{{Employee.Designation}}</td>
+                <td class="w3-center"><b>HireDate: </b><td>
+                <td>{{Employee.HireDate}}</td>
+              </tr>
+            </table><br>
+          </div><br>
+        </div>
+    <div class="w3-container w3-theme-d4"><br></div>
+    <div class="w3-container w3-theme-d5 "><br>
+        <div class="w3-xlarge"><b>Contact Information</b></div>
+          <div class="w3-text-dark-gray w3-theme-d2">
+             <table id="table2" class="w3-table w3-text-black ">
+                <col width=50%><col width=50%><br>
+                <tr>
+                  <th class="w3-large">Permenant:</th>
+                  <th class="w3-large">Current</th>
+                </tr>
+               
+                <tr>
+                  <td ><b> Address: </b> {{Employee.PermanentAddress}} </td>
+                  <td ><b> Address: </b> {{Employee.TemporaryAddress}} </td>
+                </tr>
+
+                <tr>
+                  <td ><b> Home Phone: </b> {{Employee.PermanentPhone}} </td>
+                  <td ><b> Home Phone: </b> {{Employee.TemporaryPhone}} </td>
+                </tr>
+
+                <tr>
+                  <td ><b> Postal Code: </b> {{Employee.PermanentPostalCode}} </td>
+                  <td ><b> Postal Code: </b> {{Employee.TemporaryPostalCode}} </td>
+                </tr>
+
+                <tr >
+                  <td ><b> City: </b> {{Employee.PermanentCity}} </td>
+                  <td ><b> City: </b> {{Employee.TemporaryCity}} </td>
+               </tr>
+             </table><br>
+          </div><br>
+    </div>
+    </div>
+    </div>
+    </div>
+{% endblock Content %}

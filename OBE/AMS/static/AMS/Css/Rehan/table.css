@@ -1,0 +1,52 @@
+   
+.div-tab{
+
+
+    background-color: rgb(220, 220, 220);
+    width: 80%;
+    min-height: 800px;
+    margin: 7em auto;
+    
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}   
+   
+   
+   
+  th{
+      background-color: rgba(255, 255, 0, 0.795);
+      text-align: center;
+      font-size: 20px;
+     
+      color: rgba(26, 26, 26, 0.911);
+      margin: 0px;
+      padding: 0px;
+      border:none ;
+     
+      
+  }
+  td{
+      background-color: rgba(255, 255, 0, 0.795);
+      text-align: center;
+      font-size: 18px;
+      color : rgba(26, 26, 26, 0.911);
+ 
+      border:none ;
+      
+      margin: 0px;
+      padding: 0px;
+    
+  }
+
+  table{
+    background-color: rgb(220, 220, 220);
+     
+      border-collapse: collapse;
+      border:none;
+     
+  }
+
+
+  .inner-tab{
+      padding-left: 2%;
+      padding-top: 2%;
+  }
